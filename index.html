@@ -51,8 +51,8 @@
 
     <div class="portfolio-card">
         <div class="profile-container">
-            <!-- 📷 YOUR LOGO AVATAR LINK IS FIXED HERE BELOW -->
-            <img src="https://googleusercontent.com" alt="Channel Avatar" class="profile-img">
+            <!-- 📷 NATIVE INTERNAL LINK TO YOUR UPLOADED FILE -->
+            <img src="profile.png" alt="Channel Avatar" class="profile-img">
             <span class="live-badge">Live</span>
         </div>
 
@@ -61,7 +61,7 @@
 
         <div class="live-counter-box">
             <span class="counter-label">Live Subscribers</span>
-            <div class="odometer-number" id="sub-count">Loading...</div>
+            <div class="odometer-number" id="sub-count">5</div>
         </div>
 
         <div class="links-wrapper">
@@ -95,18 +95,5 @@
         </div>
     </div>
 
-    <script>
-        // Set to your exact starting baseline of 5 subscribers!
-        let baseCount = 5; 
-        
-        const counterElement = document.getElementById('sub-count');
-        function updateCounter() {
-            let variance = Math.floor(Math.random() * 2); 
-            baseCount += variance;
-            counterElement.innerText = baseCount.toLocaleString();
-        }
-        counterElement.innerText = baseCount.toLocaleString();
-        setInterval(updateCounter, 5000);
-    </script>
 </body>
 </html>
