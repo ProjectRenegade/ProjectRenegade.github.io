@@ -4,58 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creator Portfolio</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-        body { min-height: 100vh; background: radial-gradient(circle at 20% 20%, #1e1b4b 0%, #0f172a 40%, #020617 100%); display: flex; justify-content: center; align-items: center; padding: 1rem; color: #1e293b; }
-        .portfolio-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.5); width: 100%; max-width: 400px; border-radius: 24px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); }
-        .profile-container { width: 90px; height: 90px; margin: 0 auto 1rem auto; }
-        .profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid #fff; }
-        .channel-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.25rem; color: #0f172a; }
-        .channel-handle { color: #64748b; font-size: 0.9rem; margin-bottom: 1.5rem; font-weight: 600; }
-        .live-counter-box { background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%); border-radius: 16px; padding: 1rem; margin-bottom: 1.5rem; transition: cubic-bezier(0.175, 0.885, 0.32, 1.4) 0.3s; }
-        .live-counter-box:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(255, 126, 95, 0.4); }
-        .counter-label { color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; }
-        .odometer-number { color: #fff; font-size: 1.8rem; font-weight: 700; }
-        .links-wrapper { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
-        .portfolio-link { display: block; background: #fff; color: #1e293b; text-decoration: none; padding: 0.9rem; border-radius: 12px; font-weight: 700; font-size: 0.75rem; border: 1px solid rgba(0,0,0,0.05); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; transition: 0.2s ease; }
-        .portfolio-link:hover { transform: translateY(-2px); color: #ff7e5f; }
-        .fact-banner-box { display: flex; flex-direction: column; justify-content: center; align-items: center; background: #0f172a; border-radius: 16px; padding: 1.2rem; min-height: 100px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); }
-        .fact-label { color: #ff7e5f; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
-        .fact-text { color: #f8fafc; font-size: 0.85rem; line-height: 1.4; width: 100%; word-wrap: break-word; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        :root {
+            --bg: radial-gradient(circle at 20% 20%, #1e1b4b 0%, #0f172a 40%, #020617 100%);
+            --card-bg: rgba(255, 255, 255, 0.82);
+            --card-border: rgba(255, 255, 255, 0.5);
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --fast-transit: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+        }
+        body { min-height: 100vh; background: var(--bg); position: relative; display: flex; justify-content: center; align-items: center; padding: 2rem 1rem; color: var(--text-main); overflow-x: hidden; }
+        body::before, body::after { content: ""; position: absolute; width: 350px; height: 350px; border-radius: 50%; z-index: -1; filter: blur(90px); opacity: 0.25; }
+        body::before { background: #ff7e5f; top: 15%; left: 10%; }
+        body::after { background: #7c3aed; bottom: 15%; right: 10%; }
+        .portfolio-card { background: var(--card-bg); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid var(--card-border); width: 100%; max-width: 440px; border-radius: 32px; padding: 2.5rem 2rem; text-align: center; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); }
+        .profile-container { position: relative; width: 110px; height: 110px; margin: 0 auto 1.5rem auto; }
+        .profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid #fff; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+        .live-badge { position: absolute; bottom: 2px; right: 2px; background: #ff4757; color: white; font-size: 0.65rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; border: 2px solid #fff; animation: pulseGlow 2s infinite; }
+        @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.6); } 70% { box-shadow: 0 0 0 10px rgba(255, 71, 87, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); } }
+        .channel-name { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 0.25rem; color: #0f172a; }
+        .channel-handle { color: var(--text-sub); font-size: 0.95rem; margin-bottom: 2rem; font-weight: 600; }
+        .links-wrapper { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+        .portfolio-link { display: flex; align-items: center; justify-content: center; background: #ffffff; color: #1e293b !important; text-decoration: none; padding: 1.1rem; border-radius: 18px; font-weight: 700; font-size: 0.72rem; border: 1px solid rgba(0, 0, 0, 0.03); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02); transition: var(--fast-transit); position: relative; padding-left: 2.8rem; padding-right: 1rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .portfolio-link:hover { transform: translateY(-4px) scale(1.03); border-color: rgba(255, 126, 95, 0.4); box-shadow: 0 16px 24px rgba(0, 0, 0, 0.08); color: #ff7e5f !important; }
+        .link-icon { position: absolute; left: 1.25rem; width: 20px; height: 20px; fill: #1e293b; transition: fill 0.3s ease; }
+        .portfolio-link:hover .link-icon { fill: #ff7e5f; }
+        .section-title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #475569; margin-bottom: 1rem; text-align: left; font-family: 'Space Grotesk', sans-serif; padding-left: 4px; }
+        .fact-banner-box { display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-radius: 20px; padding: 1.5rem 1.2rem; width: 100%; min-height: 110px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.08); transition: var(--fast-transit); cursor: pointer; user-select: none; }
+        .fact-banner-box:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 16px 30px rgba(0,0,0,0.25); border-color: rgba(255,126,95,0.3); }
+        .fact-label { color: #ff7e5f; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-family: 'Space Grotesk', sans-serif; margin-bottom: 8px; }
+        .fact-text { color: #f8fafc; font-size: 0.9rem; font-weight: 500; line-height: 1.45; text-align: center; width: 100%; word-wrap: break-word; overflow-wrap: break-word; white-space: normal; }
     </style>
 </head>
 <body>
     <div class="portfolio-card">
-        <div class="profile-container"><img src="profile.png" class="profile-img"></div>
+        <div class="profile-container">
+            <img src="profile.png" alt="Channel Avatar" class="profile-img">
+            <span class="live-badge">Live</span>
+        </div>
         <h1 class="channel-name">Project Renegade</h1>
         <p class="channel-handle">@ProjectRenegadeHQ</p>
-        <div class="live-counter-box">
-            <p class="counter-label">Live Subscribers</p>
-            <div class="odometer-number">5</div>
-        </div>
         <div class="links-wrapper">
-            <!-- 🔗 LINK FIXED DIRECTLY TO YOUR REAL CHANNEL HOME PAGE -->
-            <a href="https://www.youtube.com/@ProjectRenegadeHQ" target="_blank" class="portfolio-link">https://www.youtube.com/@ProjectRenegadeHQ</a>
-            <a href="https://instagram.com" target="_blank" class="portfolio-link">Follow on Instagram</a>
-            <a href="mailto:yourbrand@email.com" class="portfolio-link">Business Inquiries</a>
+            <a href="https://www.youtube.com/@ProjectRenegadeHQ" target="_blank" class="portfolio-link">
+                <svg class="link-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                https://www.youtube.com/@ProjectRenegadeHQ
+            </a>
+            <a href="https://instagram.com" target="_blank" class="portfolio-link">
+                <svg class="link-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                Follow on Instagram
+            </a>
+            <a href="mailto:yourbrand@email.com" class="portfolio-link">
+                <svg class="link-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                Business Inquiries
+            </a>
         </div>
+        <h2 class="section-title">Unlimited Trivia Zone</h2>
         <div class="fact-banner-box" onclick="generateFact()">
-            <span class="fact-label">Minecraft Trivia</span>
-            <div class="fact-text" id="fact-content">Loading...</div>
+            <span class="fact-label" id="fact-heading">Minecraft Trivia</span>
+            <div class="fact-text" id="fact-content">Loading blocky fact...</div>
         </div>
     </div>
     <script>
         const facts = [
-            "A Minecraft world is 7 times larger than planet Earth!", 
-            "Creepers were a bug where a pig model's length and height were flipped.", 
-            "Endermen sounds are British voices slowed down and reversed.", 
-            "Ghast screeches were recorded from the developer's sleeping cat.", 
-            "Naming an animal 'Dinnerbone' flips them completely upside down.", 
-            "Naming a sheep 'jeb_' makes its wool cycle a shifting rainbow color.", 
-            "Minecraft's first alpha version was coded in just six days in 2009.", 
-            "If a lightning bolt hits a pig, it becomes a Zombie Pigman.", 
-            "An Enderman cannot pick up blocks if standing in water or rain.", 
-            "Gold tools break blocks fastest but have the lowest durability."
+            "Did you know a single Minecraft world is technically larger than the planet Earth? It has roughly 7 times Earth's surface area!",
+            "Did you know Creepers were originally a programming bug when the developer accidentally flipped a pig's length and height dimensions?",
+            "Did you know Endermen audio sound effects are just regular English voices saying 'Hi' and 'What's up' slowed down and played backwards?",
+            "Did you know Ghast screeches were accidentally captured from the sound designer's cat waking up from a deep nap?",
+            "Did you know naming any animal 'Dinnerbone' or 'Grumm' using a nametag flips them completely upside down inside your world?",
+            "Did you know naming a sheep 'jeb_' makes its wool cycle through a shifting rainbow color spectrum?",
+            "Did you know Minecraft's first alpha version was fully coded in just six days back in 2009?",
+            "Did you know if a lightning bolt hits a pig, it instantly transforms into a Zombie Pigman?",
+            "Did you know an Enderman cannot pick up blocks if they are standing inside water or if the weather is raining?",
+            "Did you know tools made out of gold break blocks fastest but have the lowest durability tracking in the entire game?",
+            "Did you know diamonds were originally called 'Emeralds' during Minecraft's early developer test stages back in 2009?",
+            "Did you know you can wear a carved pumpkin on your head to stop Endermen from attacking you when looked at?"
         ];
         let lastIndex = -1;
         function generateFact() {
