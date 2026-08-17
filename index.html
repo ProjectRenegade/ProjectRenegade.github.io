@@ -56,9 +56,9 @@
         </div>
 
         <h1 class="channel-name">Project Renegade</h1>
-        <!-- 🎯 YOUR UPDATED HANDLE -->
         <p class="channel-handle">@ProjectRenegadeHQ</p>
 
+        <!-- LIVE SUBSCRIBER CARD DISPLAY -->
         <div class="live-counter-box">
             <span class="counter-label">Live Subscribers</span>
             <div class="odometer-number" id="sub-count">Loading...</div>
@@ -96,18 +96,18 @@
     </div>
 
     <script>
-        // 🔄 CUSTOMIZE YOUR MILESTONE HERE:
-        // Change 142580 to whatever your actual YouTube subscriber count is right now!
-        let baseCount = 142580; 
+        // 🎯 EXACT STARTING BASELINE SET TO 5 SUBS
+        let baseCount = 5; 
         
         const counterElement = document.getElementById('sub-count');
         function updateCounter() {
-            let variance = Math.floor(Math.random() * 5) - 2; 
+            // Smooth natural live ticks to make your profile card feel active
+            let variance = Math.floor(Math.random() * 2); 
             baseCount += variance;
             counterElement.innerText = baseCount.toLocaleString();
         }
         counterElement.innerText = baseCount.toLocaleString();
-        setInterval(updateCounter, 3000);
+        setInterval(updateCounter, 5000);
     </script>
 </body>
 </html>
