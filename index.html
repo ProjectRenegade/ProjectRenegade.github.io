@@ -51,14 +51,14 @@
 
     <div class="portfolio-card">
         <div class="profile-container">
-            <img src="https://unsplash.com" alt="Channel Avatar" class="profile-img">
+            <!-- 📷 YOUR LOGO AVATAR LINK IS FIXED HERE BELOW -->
+            <img src="https://googleusercontent.com" alt="Channel Avatar" class="profile-img">
             <span class="live-badge">Live</span>
         </div>
 
         <h1 class="channel-name">Project Renegade</h1>
         <p class="channel-handle">@ProjectRenegadeHQ</p>
 
-        <!-- LIVE SUBSCRIBER CARD DISPLAY -->
         <div class="live-counter-box">
             <span class="counter-label">Live Subscribers</span>
             <div class="odometer-number" id="sub-count">Loading...</div>
@@ -96,12 +96,11 @@
     </div>
 
     <script>
-        // 🎯 EXACT STARTING BASELINE SET TO 5 SUBS
+        // Set to your exact starting baseline of 5 subscribers!
         let baseCount = 5; 
         
         const counterElement = document.getElementById('sub-count');
         function updateCounter() {
-            // Smooth natural live ticks to make your profile card feel active
             let variance = Math.floor(Math.random() * 2); 
             baseCount += variance;
             counterElement.innerText = baseCount.toLocaleString();
