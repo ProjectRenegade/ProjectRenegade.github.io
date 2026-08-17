@@ -11,7 +11,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
         
         :root {
-            /* 🌌 Deep Cosmic Synthwave Background Mesh Layout Configuration */
+            /* 🌌 Deep Cosmic Background Mesh Layout Configuration */
             --bg-gradient: radial-gradient(circle at 20% 20%, #1e1b4b 0%, #0f172a 40%, #020617 100%);
             --card-bg: rgba(255, 255, 255, 0.82);
             --card-border: rgba(255, 255, 255, 0.5);
@@ -70,7 +70,7 @@
         .channel-name { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 0.25rem; color: #0f172a; }
         .channel-handle { color: var(--text-sub); font-size: 0.95rem; margin-bottom: 2rem; font-weight: 600; }
         
-        /* 📦 SUBSCRIBER CARD WITH HOVER SPRING LAUNCH PHYSICS RE-ADDED */
+        /* 📦 SUBSCRIBER CARD WITH HOVER SPRING POP */
         .live-counter-box { background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%); border-radius: 24px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 12px 30px var(--accent-glow); transition: var(--fast-transit); border: 1px solid rgba(255,255,255,0.25); display: flex; flex-direction: column; align-items: center; gap: 4px; }
         .live-counter-box:hover { transform: scale(1.05) translateY(-2px); box-shadow: 0 20px 40px rgba(255, 126, 95, 0.5); }
         .counter-label { color: rgba(255, 255, 255, 0.95); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-family: 'Space Grotesk', sans-serif; }
@@ -84,12 +84,25 @@
         
         .section-title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #475569; margin-bottom: 1rem; text-align: left; font-family: 'Space Grotesk', sans-serif; padding-left: 4px; }
         
-        /* FULL-WIDTH BANNER STYLING FOR LOGO IMAGE DISPLAY */
-        .video-banner-item { display: block; position: relative; border-radius: 20px; overflow: hidden; width: 100%; aspect-ratio: 16 / 9; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid rgba(255, 255, 255, 0.8); transition: var(--fast-transit); text-decoration: none; background: #000; }
-        .grid-img { width: 100%; height: 100%; object-fit: contain; background: #1a1a1a; transition: transform 0.5s ease; }
-        .grid-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0, 0, 0, 0.85)); padding: 1.2rem 1rem 0.8rem 1rem; color: #ffffff; font-size: 0.95rem; font-weight: 700; text-align: left; opacity: 0.95; transition: opacity 0.3s ease; }
-        .video-banner-item:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 16px 28px rgba(0, 0, 0, 0.25); border-color: rgba(255, 126, 95, 0.4); }
-        .video-banner-item:hover .grid-img { transform: scale(1.03); }
+        /* 🧠 PREMIUM DYNAMIC FUN FACT CONTAINER STYLING */
+        .fact-banner-box { 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); 
+            border-radius: 20px; 
+            padding: 1.5rem;
+            width: 100%; 
+            min-height: 110px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: var(--fast-transit);
+            cursor: pointer;
+        }
+        .fact-banner-box:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 16px 30px rgba(0,0,0,0.25); border-color: rgba(255,126,95,0.2); }
+        .fact-label { color: #ff7e5f; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-family: 'Space Grotesk', sans-serif; margin-bottom: 6px; }
+        .fact-text { color: #f8fafc; font-size: 0.95rem; font-weight: 500; line-height: 1.4; text-align: center; padding: 0 10px; }
     </style>
 </head>
 <body>
@@ -109,7 +122,6 @@
         </div>
 
         <div class="links-wrapper">
-            <!-- 🔗 MAIN CHANNEL LINK -->
             <a href="https://www.youtube.com/@ProjectRenegadeHQ" target="_blank" class="portfolio-link">
                 <svg class="link-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                 Subscribe on YouTube
@@ -121,19 +133,21 @@
             </a>
 
             <a href="mailto:yourbrand@email.com" class="portfolio-link">
-                <svg class="link-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <svg class="link-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.0-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                 Business Inquiries
             </a>
         </div>
 
-        <h2 class="section-title">Featured Content</h2>
+        <h2 class="section-title">Unlimited Trivia Zone</h2>
         
-        <!-- 🎬 NEW LINK ENGINE ROUTING DIRECTLY TO YOUR VIDEOS TAB -->
-        <a href="https://youtube.com" target="_blank" class="video-banner-item">
-            <img src="https://unsplash.com" alt="YouTube Videos Feed" class="grid-img">
-            <div class="grid-overlay">Watch My Latest Videos 🎬</div>
-        </a>
+        <div class="fact-banner-box" onclick="fetchLiveFact()">
+            <span class="fact-label" id="fact-heading">Gaming Trivia</span>
+            <div class="fact-text" id="fact-content">Tapping cloud matrix...</div>
+        </div>
     </div>
 
-</body>
-</html>
+    <script>
+        const fallbackFacts = [
+            "Minecraft worlds are technically larger than Earth, expanding roughly 7 times Earth's total surface area!",
+            "Creepers were originally a programming bug when the developer accidentally flipped a pig's length and height dimensions.",
+            "Endermen audio sound effects are just normal English voices saying 'Hi' and 'What's up' slowed down and played backwards.",
