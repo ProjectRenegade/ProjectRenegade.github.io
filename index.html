@@ -162,7 +162,7 @@
             align-items: center;
             justify-content: center;
             background: #ffffff;
-            color: var(--text-main);
+            color: #2d3748 !important; /* Forces text color to dark gray */
             text-decoration: none;
             padding: 1.1rem;
             border-radius: 18px;
@@ -180,7 +180,7 @@
             background: #ffffff;
             border-color: rgba(255, 126, 95, 0.3);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
-            color: #ff7e5f;
+            color: #ff7e5f !important;
         }
 
         .portfolio-link:active {
@@ -268,16 +268,12 @@
             <span class="live-badge">Live</span>
         </div>
 
-        <h1 class="channel-name">Your Channel Name</h1>
-        <p class="channel-handle">@yourhandle</p>
+        <h1 class="channel-name">Project Renegade</h1>
+        <p class="channel-handle">@ProjectRenegade</p>
 
-        <!-- SECURE LIVE SUBSCRIBER BOX USING EMBED DESIGN PATTERN -->
+        <!-- AUTOMATICED TRACKING SUBSCRIBER CARD -->
         <div class="live-counter-box">
             <span class="counter-label">Live Subscribers</span>
-            <!-- 
-              🔧 ACTION REQUIRED: 
-              Replace UC-xxxxxxxxxxxxxxxxx with your true YouTube Channel ID string.
-            -->
             <iframe 
                 class="counter-iframe"
                 src="https://livecounts.io">
