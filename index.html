@@ -70,7 +70,7 @@
         .channel-name { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 0.25rem; color: #0f172a; }
         .channel-handle { color: var(--text-sub); font-size: 0.95rem; margin-bottom: 2rem; font-weight: 600; }
         
-        /* 📦 SUBSCRIBER CARD WITH ACTIVE ELASTIC SPRING HOVER LAUNCH PHYSICS */
+        /* 📦 SUBSCRIBER CARD WITH HOVER SPRING LAUNCH PHYSICS RE-ADDED */
         .live-counter-box { background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%); border-radius: 24px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 12px 30px var(--accent-glow); transition: var(--fast-transit); border: 1px solid rgba(255,255,255,0.25); display: flex; flex-direction: column; align-items: center; gap: 4px; }
         .live-counter-box:hover { transform: scale(1.05) translateY(-2px); box-shadow: 0 20px 40px rgba(255, 126, 95, 0.5); }
         .counter-label { color: rgba(255, 255, 255, 0.95); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-family: 'Space Grotesk', sans-serif; }
@@ -83,11 +83,13 @@
         .portfolio-link:hover .link-icon { fill: #ff7e5f; }
         
         .section-title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #475569; margin-bottom: 1rem; text-align: left; font-family: 'Space Grotesk', sans-serif; padding-left: 4px; }
-        .video-banner-item { display: block; position: relative; border-radius: 20px; overflow: hidden; width: 100%; aspect-ratio: 16 / 9; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid rgba(255, 255, 255, 0.8); transition: var(--fast-transit); text-decoration: none; }
-        .grid-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .grid-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0, 0, 0, 0.7)); padding: 1rem 1rem 0.75rem 1rem; color: #ffffff; font-size: 0.9rem; font-weight: 600; text-align: left; opacity: 0.9; transition: opacity 0.3s ease; }
-        .video-banner-item:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 16px 28px rgba(0, 0, 0, 0.15); border-color: rgba(255, 126, 95, 0.4); }
-        .video-banner-item:hover .grid-img { transform: scale(1.05); }
+        
+        /* FULL-WIDTH BANNER STYLING FOR LOGO IMAGE DISPLAY */
+        .video-banner-item { display: block; position: relative; border-radius: 20px; overflow: hidden; width: 100%; aspect-ratio: 16 / 9; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid rgba(255, 255, 255, 0.8); transition: var(--fast-transit); text-decoration: none; background: #000; }
+        .grid-img { width: 100%; height: 100%; object-fit: contain; background: #1a1a1a; transition: transform 0.5s ease; }
+        .grid-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0, 0, 0, 0.85)); padding: 1.2rem 1rem 0.8rem 1rem; color: #ffffff; font-size: 0.95rem; font-weight: 700; text-align: left; opacity: 0.95; transition: opacity 0.3s ease; }
+        .video-banner-item:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 16px 28px rgba(0, 0, 0, 0.25); border-color: rgba(255, 126, 95, 0.4); }
+        .video-banner-item:hover .grid-img { transform: scale(1.03); }
     </style>
 </head>
 <body>
@@ -107,7 +109,7 @@
         </div>
 
         <div class="links-wrapper">
-            <!-- 🔗 ALL ACTIONS TIED NATIVELY STRAIGHT TO YOUR VERIFIED @ CHANNEL LINK -->
+            <!-- 🔗 MAIN CHANNEL LINK -->
             <a href="https://www.youtube.com/@ProjectRenegadeHQ" target="_blank" class="portfolio-link">
                 <svg class="link-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                 Subscribe on YouTube
@@ -126,10 +128,10 @@
 
         <h2 class="section-title">Featured Content</h2>
         
-        <!-- 🎬 BANNER ENGINE POINTED DIRECTLY TO YOUR REAL CHANNEL -->
-        <a href="https://www.youtube.com/@ProjectRenegadeHQ" target="_blank" class="video-banner-item">
-            <img src="https://unsplash.com" alt="Latest Video" class="grid-img">
-            <div class="grid-overlay">Watch My Latest Video 🎬</div>
+        <!-- 🎬 NEW LINK ENGINE ROUTING DIRECTLY TO YOUR VIDEOS TAB -->
+        <a href="https://youtube.com" target="_blank" class="video-banner-item">
+            <img src="https://unsplash.com" alt="YouTube Videos Feed" class="grid-img">
+            <div class="grid-overlay">Watch My Latest Videos 🎬</div>
         </a>
     </div>
 
